@@ -1,1 +1,12 @@
-GET http://localhost:3000/api/v1/products
+# GET http://localhost:3000/api/v1/products
+
+POST http://localhost:3000/api/v1/products/translate
+
+# POST /v2/translate
+# Host: api-free.deepl.com
+Authorization: DeepL-Auth-Key d626320b-cc59-1840-81c7-dd2e3935550d:fx
+User-Agent: YourApp/1.2.3
+Content-Length: 37
+Content-Type: application/x-www-form-urlencoded
+
+# text=Hello%2C%20world!&target_lang=DE
