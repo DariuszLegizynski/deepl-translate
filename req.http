@@ -1,6 +1,6 @@
-# GET http://localhost:3000/api/v1/products
+GET http://localhost:3000/api/v1/products
 
-POST http://localhost:3000/api/v1/products/translate
+# POST http://localhost:3000/api/v1/products/translate
 
 # POST /v2/translate
 # Host: api-free.deepl.com
