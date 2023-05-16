@@ -34,7 +34,7 @@ const editData = async translatedDescription => {
   const API_URL = process.env.API_URL
 
     try {
-      const response = await fetch(`${API_URL}/${translatedDescription.products_id}/${translatedDescription.language_id}`, {
+      await fetch(`${API_URL}/${translatedDescription.products_id}/${translatedDescription.language_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(translatedDescription),
