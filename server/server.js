@@ -30,7 +30,7 @@ app.put(`${API_URL}/:products_id/:language_id`, async (req, res) => {
 	console.log("#############")
 
 	try {
-		const updateProduct = await pool.query("UPDATE dupe_products_description SET products_name = $1, products_description = $2, products_short_description = $3, products_meta_title_tag = $4, products_meta_desc_tag = $5, products_meta_keywords_tag = $6 WHERE products_id = $7 AND language_id = $8;", [
+		const updateProduct = await pool.query("UPDATE clone_products_description SET products_name = $1, products_description = $2, products_short_description = $3, products_meta_title_tag = $4, products_meta_desc_tag = $5, products_meta_keywords_tag = $6 WHERE products_id = $7 AND language_id = $8;", [
 			products_name, products_description, products_short_description, products_meta_title_tag, products_meta_desc_tag, products_meta_keywords_tag, products_id, language_id
 		])
 		res.status(200).json(updateProduct)
