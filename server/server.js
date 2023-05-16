@@ -14,7 +14,7 @@ app.use(express.json())
 
 app.get(`${API_URL}`, async (req, res) => {
 	try {
-		const getProducts = await pool.query("SELECT * FROM products_description WHERE language_id = 5 LIMIT 2")
+		const getProducts = await pool.query("SELECT * FROM products_description WHERE language_id = 5")
 		res.status(200).json(getProducts.rows)
 	} catch (err) {
 		console.log(err)
