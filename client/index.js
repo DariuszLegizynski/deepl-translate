@@ -39,8 +39,6 @@ const editData = async translatedDescription => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(translatedDescription),
       })
-  
-      console.log("response:  ", response)
       
     } catch (err) {
       console.error(err)
@@ -51,9 +49,9 @@ const main = async () => {
 
   const productsList = [
     {
-      products_id: 99,
-      language_id: 77,
-      products_name: 'Rakieta - Lunar Shuttle',
+      products_id: 1,
+      language_id: 5,
+      products_name: 'bziuuuuuuuuuuu',
       products_name_info: '',
       products_description: 'Model rakiety <strong>Lunar Shuttle</strong> o długości 43 cm, wyprodukowana przez amerykańską firmę <strong>MPC</strong>.<strong>Charakterystyka:</strong><ul><li>Odpowiednie dla osób powyżej 10 roku życia pod nadzorem osoby dorosłej</li><li>Rakieta wykonana z wytrzymałej tektury oraz plastiku.</li><li>W zestawie jedno-członowa rakieta, plastikowa elementy wraz ze statecznikami, nakleki, linki, oraz spadochron.</li><li>Średnica mocowania silnika: 19 mm</li></ul> Oznaczenie producenta: MPCRKT012',
       products_short_description: '',
@@ -70,7 +68,7 @@ const main = async () => {
     {
       products_id: 2,
       language_id: 5,
-      products_name: 'Model plastikowy - Samolot (hydroplan) Huges H-4 Hercules Spruce Goose - Minicraft',
+      products_name: 'Cos tam',
       products_name_info: '',
       products_description: 'Model plastikowy samolotu Huges H-4 Hercules Spruce Goose, wyprodukowany przez amerykańską firmę Minicraft Model Kits. <strong>Charakterystyka:</strong><ul><li>Skala: 1:200</li><li>Części precyzyjnie odwzorowane w plastiku</li><li>Szczegółowo wykonane wnętrze</li><li>Zestaw naklejek</li><li>Instrukcja</li></ul> <strong>Wymagane do złożenia:</strong><ul><li>Nóż modelarski</li><li>Cążki modelarskie do odcinania odlewów</li></ul><ul><li>Klej do modeli plastikowych</li></ul><ul><li>Farba</li></ul> Oznaczenie producenta: 11657',
       products_short_description: '',
@@ -106,6 +104,8 @@ const main = async () => {
 
     editData(translatedContent)
   }
+
+  console.log("ALL OK")
 }
 
 main()
