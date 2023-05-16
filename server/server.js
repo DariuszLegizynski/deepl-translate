@@ -26,7 +26,7 @@ app.put(`${API_URL}/:products_id/:language_id`, async (req, res) => {
 	const { products_id, language_id } = req.params
 	const { products_name, products_description, products_short_description, products_meta_title_tag, products_meta_desc_tag, products_meta_keywords_tag } = req.body
 
-	console.log(products_id, language_id)
+	console.log("proceeding: ", products_id, language_id)
 	console.log("#############")
 
 	try {
@@ -34,8 +34,14 @@ app.put(`${API_URL}/:products_id/:language_id`, async (req, res) => {
 			products_name, products_description, products_short_description, products_meta_title_tag, products_meta_desc_tag, products_meta_keywords_tag, products_id, language_id
 		])
 		res.status(200).json(updateProduct)
+		console.log("###########")
+		console.log("done: ", products_id, language_id)
+		console.log("###########")
+		console.log("###########")
 	} catch (err) {
 		console.log(err)
+		console.log("error: ", products_id, language_id)
+		console.log("###########")
 	}
 })
 
