@@ -19,7 +19,6 @@ const translate = async text => {
 	const translated = await translator
 		.translateText(text, SOURCE_LANG, TARGET_LANG, { formality: "more" })
 		.then(result => {
-			console.log("result.text: ", result.text)
 			return result.text
 		})
 		.catch(error => {
