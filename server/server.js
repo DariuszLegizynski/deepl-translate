@@ -22,17 +22,21 @@ app.get(`${API_URL}`, async (req, res) => {
 })
 
 app.put(`${API_URL}/:products_id/:language_id`, async (req, res) => {
+
 	const { products_id, language_id } = req.params
+	console.log("###############")
 	const { products_name, products_description, products_short_description, products_meta_title_tag, products_meta_desc_tag, products_meta_keywords_tag } = req.body
 
-	try {
-		const updateProduct = await pool.query("UPDATE todos SET products_name = $1, products_description = $2, products_meta_title_tag = $3, products_meta_desc_tag = $4, products_meta_keywords_tag = $5 WHERE products_id = $6 AND language_id = $7;", [
-			products_name, products_description, products_short_description, products_meta_title_tag, products_meta_desc_tag, products_meta_keywords_tag, products_id, language_id
-		])
-		res.json(updateProduct)
-	} catch (err) {
-		console.log(err)
-	}
+	console.log(products_id, language_id)
+
+	// try {
+	// 	const updateProduct = await pool.query("UPDATE todos SET products_name = $1, products_description = $2, products_meta_title_tag = $3, products_meta_desc_tag = $4, products_meta_keywords_tag = $5 WHERE products_id = $6 AND language_id = $7;", [
+	// 		products_name, products_description, products_short_description, products_meta_title_tag, products_meta_desc_tag, products_meta_keywords_tag, products_id, language_id
+	// 	])
+	// 	res.json(updateProduct)
+	// } catch (err) {
+	// 	console.log(err)
+	// }
 })
 
 app.listen(PORT, () => {
