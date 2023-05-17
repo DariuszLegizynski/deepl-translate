@@ -5,6 +5,7 @@ const getSQLProducts = async () => {
 	const API_URL = process.env.API_URL
 	const getProducts = await fetch(`${API_URL}`).catch(err => console.error(err))
 	const products = await getProducts.json()
+
 	return products
 }
 
@@ -25,30 +26,32 @@ const translate = async text => {
 			console.error(error)
 		})
 
-    return translated
+	return translated
 }
 
 const editData = async translatedDescription => {
-  const API_URL = process.env.API_URL
+	const API_URL = process.env.API_URL
 
-    try {
-      await fetch(`${API_URL}/${translatedDescription.products_id}/${translatedDescription.language_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(translatedDescription),
-      })
-      
-    } catch (err) {
-      console.error(err)
-    }
+	try {
+		await fetch(`${API_URL}/${translatedDescription.products_id}/${translatedDescription.language_id}`, {
+			method: "PUT",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(translatedDescription),
+		})
+	} catch (err) {
+		console.error(err)
+	}
 }
 
 const main = async () => {
+	const productsList = await getSQLProducts()
 
-  const productsList = await getSQLProducts()
+	console.log(productsList)
+	let count = 0
 
 	for (let i of productsList) {
-    const translatedContent = {}
+		const translatedContent = {}
+		console.log("proceeding: ", i.products_id, i.language_id)
 		translatedContent.products_id = i.products_id
 		translatedContent.language_id = i.language_id
 		translatedContent.products_name = await translate(i.products_name)
@@ -65,10 +68,13 @@ const main = async () => {
 		translatedContent.products_og_title = i.products_og_title
 		translatedContent.products_og_description = i.products_og_description
 
-    editData(translatedContent)
-  }
+		count++
+    console.log(count)
 
-  console.log("ALL OK")
+		editData(translatedContent)
+	}
+
+	console.log("ALL OK")
 }
 
 main()
